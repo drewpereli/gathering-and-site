@@ -1,5 +1,8 @@
+include components/section
+include components/darkened-parallax
+
 doctype html
-html
+html.bg-black
   head
     meta(charset='UTF-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
@@ -10,5 +13,46 @@ html
     )
     title Gathering And
 
-body
-  div Gathering and site here
+  body
+    main.main-bg-color.main-text-color
+      +darkened-parallax.h-screen.bg-weed-2
+        .h-full.w-full.flex.items-center.justify-center
+          nav.flex.items-center.justify-around.h-16.text-white.text-sm.uppercase.absolute.top-0.left-0.w-full
+            each navItem in [{label: 'about', section: 'about'}, {label: 'do i need you?', section: 'why'}, {label: 'contact', section: 'contact'}]
+              span.cursor-pointer.font-bold.main-nav-item(
+                class='hover:underline',
+                data-section=navItem.section
+              )= navItem.label
+
+          .px-4.uppercase
+            .text-6xl.font-bold.text-center.text-white(class="md:text-9xl") Gathering And
+            .mt-4.text-lg.text-center.text-gray-300.font-bold
+              span Weed Buyers
+              span.ml-1.opacity-50 |
+              span.ml-1 Straight Tokin
+
+      div
+        #section-about
+          +section({headerText: "About Gathering And"})
+            .w-full.max-w-xl.
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt aliquam laborum, natus, sapiente dolorem voluptas eligendi commodi alias obcaecati maiores, laboriosam placeat dolor nisi quos voluptatem dignissimos modi laudantium eaque?
+
+      +darkened-parallax.h-50vh.bg-weed-4
+
+      div
+        #section-why
+          +section({headerText: "Why Us"})
+            .w-full.max-w-xl.
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt aliquam laborum, natus, sapiente dolorem voluptas eligendi commodi alias obcaecati maiores, laboriosam placeat dolor nisi quos voluptatem dignissimos modi laudantium eaque?
+
+      +darkened-parallax.h-50vh.bg-weed-3
+
+      div
+        #section-contact
+          +section({headerText: "Contact"})
+            .w-full.max-w-xl.
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt aliquam laborum, natus, sapiente dolorem voluptas eligendi commodi alias obcaecati maiores, laboriosam placeat dolor nisi quos voluptatem dignissimos modi laudantium eaque?
+      
+      .bg-black.h-52.pb-12.flex.flex-col.items-center.justify-end
+          .text-gray-50.text-xl.uppercase Gathering And
+          .mt-6.text-gray-400.text-sm.uppercase 123 Fake St, Chicago, IL

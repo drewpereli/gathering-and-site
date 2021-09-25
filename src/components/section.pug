@@ -1,0 +1,11 @@
+include ./header
+
+mixin section({headerText = false})
+  .py-24.px-12.flex.flex-col&attributes(attributes)(class="md:flex-row")
+    .flex(class="md:w-5/12 md:justify-end md:pr-4  md:border-r md:border-gray-100")
+      if headerText
+        +header(class="md:text-right")= headerText
+
+    .flex.mt-4(class="md:justify-start md:pl-4 md:mt-0")
+      if block
+        block
